@@ -1,0 +1,40 @@
+nav {
+    background-color: rgba(0, 0, 0, 0.452);
+    display: flex;
+    padding: 5px;
+    font-size: 30px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+nav > div.element {
+   background-color: black;
+   margin-right: 5px;
+   min-width: 150px;
+   text-align: center;
+   padding: 0.5em;
+   border-radius: 0.5rem;
+   
+}
+
+div.login {
+   margin-left: auto;
+ }
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 640px) {
+    nav {
+        font-size: 30px;
+    }
+
+    nav > div.element{
+        min-width: 150px;
+        flex-basis: 100%;
+        margin : 0;
+        width: 100%;
+    }
+
+    nav > div.element:hover{
+        border: 0.5px solid white;
+    }
+  }
