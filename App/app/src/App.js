@@ -1,10 +1,12 @@
 
-import Header from './header/index.js' 
+import Header from './header/index.js'
+import HomePage from './pages/home/index';
 
 function App() {
   return (
     <>
-    <Header></Header> 
+    <Header></Header>
+    <HomePage></HomePage>
     </>   
   );
 }

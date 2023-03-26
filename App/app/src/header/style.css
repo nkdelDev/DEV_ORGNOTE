@@ -2,39 +2,52 @@ nav {
     background-color: rgba(0, 0, 0, 0.452);
     display: flex;
     padding: 5px;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 nav > div.element {
    background-color: black;
    margin-right: 5px;
-   min-width: 150px;
+   min-width: 100px;
    text-align: center;
    padding: 0.5em;
    border-radius: 0.5rem;
    
 }
 
+nav > div.element:hover {
+
+    cursor: pointer;
+    font-weight: bold;
+    cursor: pointer;
+    
+ }
+
 div.login {
    margin-left: auto;
  }
 
 /* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 992px) {
     nav {
-        font-size: 30px;
+        font-size: 16px;
+        padding: 0px;
     }
 
     nav > div.element{
         min-width: 150px;
         flex-basis: 100%;
-        margin : 0;
         width: 100%;
+        border-radius: 0rem;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     nav > div.element:hover{
-        border: 0.5px solid white;
+        border: 1px solid white;
+        background-color: rgba(0, 0, 0, 0.521);
     }
   }

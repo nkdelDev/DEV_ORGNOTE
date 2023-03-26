@@ -1,4 +1,4 @@
-import './header.css';
+import './style.css';
 
 function Header() {
   
@@ -6,11 +6,15 @@ function Header() {
   let elements = []
 
   labels.forEach((data) => {
-    if(data === 'login'){
-      elements.push(<div class="element login" >{data}</div>)  
-    }
-    else{
-      elements.push(<div class="element" >{data}</div>)  
+
+    switch (data) {
+      case 'login':
+          elements.push(<div class="element login" >{data}</div>)
+        break;
+    
+      default:
+          elements.push(<div class="element" >{data}</div>)  
+        break;
     }
   })
 
