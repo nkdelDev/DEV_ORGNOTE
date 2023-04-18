@@ -1,28 +1,36 @@
 nav {
-    background-color: rgba(0, 0, 0, 0.452);
+    background-color: black;
     display: flex;
     padding: 5px;
     font-size: 20px;
-    color: white;
+    color: rgba(255, 255, 255, 0.774);
     flex-wrap: wrap;
     margin-bottom: 10px;
+    /* serve per avere l'header fisso */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 
 nav > div.element {
-   background-color: black;
    margin-right: 5px;
    min-width: 100px;
    text-align: center;
    padding: 0.5em;
-   border-radius: 0.5rem;
+   border : 3px solid transparent
    
 }
 
 nav > div.element:hover {
-
+    color: white;
     cursor: pointer;
     font-weight: bold;
     cursor: pointer;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background-color: rgba(43, 42, 42, 0.596);
     
  }
 
