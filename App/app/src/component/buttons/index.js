@@ -1,9 +1,10 @@
 import styles from './style.module.css';
-import Modal from '../../../../modals/modal_std';
 function Buttons(props) {
   
-  let id = props.data.id
-  let action = props.data.actions
+  
+
+  let id = (props.data.id != '') ? props.data.id : '';
+  let action = (props.data.action != null) ? props.data.action : 'Conferma';
                       
   function openModal(e) {
     let target = e.target;
@@ -12,6 +13,7 @@ function Buttons(props) {
 
   }
 
+  
 
   return (
     <>

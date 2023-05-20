@@ -2,7 +2,7 @@ nav {
     background-color: black;
     display: flex;
     padding: 5px;
-    font-size: 20px;
+    font-size: 40px;
     color: rgba(255, 255, 255, 0.774);
     flex-wrap: wrap;
     margin-bottom: 10px;
@@ -52,6 +52,7 @@ div.login {
         border-radius: 0rem;
         margin-left: 0px;
         margin-right: 0px;
+        display: none;
     }
 
     nav > div.element:hover{

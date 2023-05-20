@@ -1,56 +1,179 @@
 
+
 import styles from './style.css';
+import logo1 from '../images/sidebar/logo1.png';
+import logo2 from '../images/sidebar/logo2.png';
+import logo3 from '../images/sidebar/logo3.png';
+import logo4 from '../images/sidebar/logo4.png';
+import logo5 from '../images/sidebar/logo5.png';
+import notFound from '../images/default/notFound.png';
+import {ReactComponent as Arrowsidebar} from '../images/sidebar/arrow_sidebar.svg';
 
 
-let arrow_svg = (<svg width="30" viewBox="0 0 711 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M425.352 11.6925C409.156 -3.8975 382.936 -3.8975 366.781 11.6925L24.2629 342.22C-8.08763 373.439 -8.08763 424.087 24.2629 455.306L369.267 788.294C385.297 803.724 411.185 803.934 427.422 788.704C444.032 773.155 444.198 747.521 427.877 731.732L112.119 427.044C95.9234 411.414 95.9234 386.111 112.119 370.482L425.352 68.2159C441.548 52.6259 441.548 27.3221 425.352 11.6925Z" fill="#6C6767"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M696.352 11.6925C680.156 -3.8975 653.936 -3.8975 637.781 11.6925L295.263 342.22C262.912 373.439 262.912 424.087 295.263 455.306L640.267 788.294C656.297 803.724 682.185 803.934 698.422 788.704C715.032 773.155 715.198 747.521 698.877 731.732L383.119 427.044C366.923 411.414 366.923 386.111 383.119 370.482L696.352 68.2159C712.548 52.6259 712.548 27.3221 696.352 11.6925Z" fill="#3C3636"/>
-</svg>)
+let arrow_svg = (<Arrowsidebar/>)
+
 
 let items = [
     {
       id:1,
-      name:'add',
-      img:null,
+      name:'immagine1 da fare come test',
+      img:logo1,
       popup:null 
     },
     {
         id:2,
-        name:'delete',
-        img:null,
+        name:'immagine2',
+        img:logo2,
         popup:null 
       },
       {
         id:3,
-        name:'section',
-        img:null,
-        popup:null,
-        subSection:[
-         {
-            name:'section1',
-            img:null,
+        name:'immagine3',
+        img:logo2,
+        popup:null 
+      },
+      {
+        id:1,
+        name:'immagine1',
+        img:logo1,
+        popup:null 
+      },
+      {
+          id:2,
+          name:'immagine2',
+          img:logo2,
+          popup:null 
+        },
+        {
+          id:3,
+          name:'immagine3',
+          img:logo2,
+          popup:null 
+        },
+        {
+          id:1,
+          name:'immagine1',
+          img:logo1,
+          popup:null 
+        },
+        {
+            id:2,
+            name:'immagine2',
+            img:logo2,
             popup:null 
-         },
-         {
-            name:'section1',
-            img:null,
+          },
+          {
+            id:3,
+            name:'immagine3',
+            img:logo2,
             popup:null 
-         },
-         {
-            name:'section1',
-            img:null,
+          },
+          {
+            id:1,
+            name:'immagine1',
+            img:logo1,
             popup:null 
-         }
-        ]
-
-        
-      }
+          },
+          {
+              id:2,
+              name:'immagine2',
+              img:logo2,
+              popup:null 
+            },
+            {
+              id:3,
+              name:'immagine3',
+              img:logo2,
+              popup:null 
+            },
+            {
+              id:1,
+              name:'immagine1',
+              img:logo1,
+              popup:null 
+            },
+            {
+                id:2,
+                name:'immagine2',
+                img:logo2,
+                popup:null 
+              },
+              {
+                id:3,
+                name:'immagine3',
+                img:logo2,
+                popup:null 
+              }
 ]
+
 
 let elements = [];
 
+function onLoadImages(e) {
+  let imagetag = e.target;
+  var isLoaded = imagetag.complete && imagetag.naturalHeight !== 0;
+  if(isLoaded){
+    console.log('immagine caricata correttamente')
+  }
+  else {
+    console.log('NON CARICATA')
+    e.target.src = notFound;
+  }
+}
+
+function popUpSidebarElement(e,name){
+
+  // rimuovo tutti gli elementi che hanno come classe sideBarPopup
+  const allPopUp = document.querySelectorAll('.sideBarPopup');
+
+  allPopUp.forEach(el => {
+    el.remove();
+  });
+
+  // attivo il popup da vedere 
+  const node = document.createElement("div");
+  const nodeSpan = document.createElement("span");
+  node.classList.add('ElementPopup')
+  const textnode = document.createTextNode(name);
+  let elementWidth = document.getElementById('sidebar-container');
+  let marginLeft = elementWidth.offsetWidth;
+  let marginLeftAgg = elementWidth.offsetWidth / 5;
+  let heightElement = e.currentTarget.offsetHeight;
+  console.log(e.currentTarget.offsetLeft + '||' + e.currentTarget.offsetTop) // gestione per avere l'offset di sinitra e l'offset in alto
+  const offsetLeft = (e.currentTarget.offsetLeft + marginLeft + marginLeftAgg ) + 'px';
+  console.log(e.currentTarget.offsetTop); 
+  node.style.marginLeft = offsetLeft;
+  const currrentTarget = e.currentTarget;
+  node.style.marginTop = ((currrentTarget.getBoundingClientRect().top) + window.pageYOffset) + 'px';
+  node.style.position = 'absolute';
+  node.style.zIndex = '9999';
+  node.style.height = heightElement + 'px'
+  node.appendChild(nodeSpan)
+  nodeSpan.appendChild(textnode);
+  let elementPopup = document.getElementById('containerPopUp');
+  elementPopup.appendChild(node);
+}
+
+function popUpSidebarElementRemove(e){
+    // rimuovo tutti gli elementi che hanno come classe sideBarPopup
+    const allPopUp = document.querySelectorAll('.ElementPopup');
+
+    allPopUp.forEach(el => {
+      el.remove();
+    });
+}
+
+
+
 items.forEach((data) => {
-    elements.push(<div id={data.id} className={styles.element} data={data.name}></div>)  
+    elements.push(<li id={data.id} className={styles.element} data={data.name} onMouseOver={(e) =>{ popUpSidebarElement(e,data.name)}} onMouseLeave={(e) =>{ popUpSidebarElementRemove(e)}}> 
+     <img src={data.img !== null ? data.img : notFound}
+     alt="Logo"  
+     onLoad  = {(e) => onLoadImages(e)} 
+     onError = {(e) => onLoadImages(e)}     
+      />
+      </li>
+      )  
 })
 
 function openClose(e){
@@ -81,7 +204,7 @@ function Sidebar() {
   return (
     <>
    <div id={'sidebar'} className={'disactivate_sidebar'}>
-     <div  id={'sidebar-container'}></div>
+     <div  id={'sidebar-container'}><ul>{elements}</ul></div>
      <div  id={'sidebar-open'} onClick={(e) => openClose(e)}>{arrow_svg}</div>
    </div>
     </>   
